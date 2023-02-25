@@ -1,0 +1,19 @@
+.home {
+  &__container {
+    &__pagination {
+      margin-block: 20px;
+      width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        height: 30px;
+      }
+    }
+  }
+}

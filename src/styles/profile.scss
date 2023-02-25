@@ -1,0 +1,47 @@
+.profile {
+  background-image: url("../assets/chair.jpg");
+  min-height: 86vh;
+  display: flex;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  &__container {
+    padding: 20px;
+    form {
+      display: flex;
+      flex-direction: column;
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+        color: #fff;
+      }
+      input {
+        width: 400px;
+        height: 40px;
+        border-radius: 20px;
+        font-size: 18px;
+        padding: 20px;
+        outline: none;
+        border: none;
+        margin-block: 20px;
+      }
+      button {
+        height: 40px;
+        font-size: 18px;
+        border-radius: 20px;
+        margin-bottom: 5px;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        color: white;
+        background-color: #373b69;
+        &:hover {
+          transition: all 0.3s ease-in-out;
+          background-color: #22254b;
+        }
+      }
+    }
+  }
+}

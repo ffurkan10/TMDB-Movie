@@ -1,0 +1,96 @@
+.home {
+  background-color: #22254b;
+  &__container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &__lists {
+      display: flex;
+      flex-wrap: wrap;
+      list-style-type: none;
+      align-items: center;
+      justify-content: center;
+      a {
+        text-decoration: none;
+      }
+      &__list {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin: 10px;
+        background-color: #373b69;
+        &:hover {
+          scale: (1.1);
+          transition: all 0.3s ease-out;
+        }
+        &__icon {
+          button {
+            background-color: transparent;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            &:active {
+              fill: red;
+            }
+          }
+          display: flex;
+          position: absolute;
+          cursor: pointer;
+          padding: 5px;
+        }
+        &__img {
+          max-width: 300px;
+          max-height: 200px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &__content {
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          h3 {
+            color: white;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+          }
+          span {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.green {
+  color: green;
+  background-color: #22254b;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.yellow {
+  color: yellow;
+  background-color: #22254b;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.red {
+  color: red;
+  background-color: #22254b;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
