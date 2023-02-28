@@ -1,3 +1,19 @@
+$breakpoints: (
+  "xs": 36em,
+  "sm": 48em,
+  "md": 62em,
+  "lg": 75em,
+  "xl": 87.5em,
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
 .detail {
   background-color: #22254b;
   min-height: 80vh;
@@ -9,7 +25,7 @@
     padding: 20px;
     align-items: center;
     &__left {
-      width: 45%;
+      margin-right: 10px;
       &__image {
         width: 600px;
         img {
@@ -18,7 +34,8 @@
       }
     }
     &__right {
-      width: 45%;
+      margin-left: 10px;
+      width: 600px;
       &__title {
         display: flex;
         justify-content: space-between;
@@ -52,7 +69,7 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: center;
       list-style-type: none;
       a {
         text-decoration: none;
@@ -64,14 +81,14 @@
         margin: 10px;
         background-color: #373b69;
         &__img {
-          width: 250px;
+          width: 150px;
           img {
             width: 100%;
           }
         }
         &__name {
           padding: 10px;
-          width: 250px;
+          width: 150px;
           p {
             text-overflow: ellipsis;
             overflow: hidden;
@@ -105,4 +122,35 @@
   padding: 0.5rem;
   border-radius: 5px;
   font-size: 1rem;
+}
+
+@include breakpoint(md) {
+  .detail {
+    &__container {
+      flex-direction: column;
+      &__left {
+        margin-right: 0px;
+        margin-bottom: 20px;
+      }
+      &__right {
+        margin-left: 0px;
+      }
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .detail {
+    &__container {
+      &__left {
+        width: 80%;
+        &__image {
+          width: 100%;
+        }
+      }
+      &__right {
+        width: 80%;
+      }
+    }
+  }
 }
