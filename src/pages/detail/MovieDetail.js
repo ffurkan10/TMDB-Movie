@@ -70,8 +70,8 @@ const MovieDetail = () => {
         </div>
         <ul className="detail__similar__list">
           {similar.map((similar) => (
-            <Link to={`/detail/${similar.id}`}>
-              <li className="detail__similar__list__card" key={similar.id}>
+            <Link to={`/detail/${similar.id}`} key={similar.id}>
+              <li className="detail__similar__list__card">
                 <div className="detail__similar__list__card__img">
                   <img src={IMG_API + similar.backdrop_path} alt="" />
                 </div>
