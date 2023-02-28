@@ -27,7 +27,7 @@ const Favorite = () => {
       <div className="favorite__container">
         <ul className="favorite__container__list">
           {favorites.favorites.map((favorite) => (
-            <li className="favorite__container__list__card">
+            <li key={favorite.id} className="favorite__container__list__card">
               <div className="favorite__container__list__card__img">
                 <div className="favorite__container__list__card__img__icon">
                   <button onClick={() => deleteFavorite(favorite)}>
@@ -36,9 +36,11 @@ const Favorite = () => {
                 </div>
                 <img src={IMG_API + favorite.backdrop_path} alt="" />
               </div>
-              <div className="favorite__container__list__card__name">
-                <h3>{favorite.title}</h3>
-              </div>
+              <Link to={`/detail/${favorite.id}`}>
+                <div className="favorite__container__list__card__name">
+                  <h3>{favorite.title}</h3>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
