@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useIsLoggedIn } from "../../firebase/Hooks";
 import { Link } from "react-router-dom";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
 
 const Navbar = () => {
   const isLoggedIn = useIsLoggedIn();
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSideBar = () => {
+    setSidebar(!sidebar);
+  };
 
   return (
     <div className="navbar">
@@ -31,7 +38,13 @@ const Navbar = () => {
           </svg>
           <h1>TMDB</h1>
         </div>
-        <ul className="navbar__container__lists">
+        <ul
+          className={
+            sidebar
+              ? "navbar__container__lists__active"
+              : "navbar__container__lists"
+          }
+        >
           <Link to="/">
             <li className="navbar__container__lists__item">
               <p>Home</p>
@@ -45,11 +58,20 @@ const Navbar = () => {
           </Link>
 
           <Link to={isLoggedIn ? "/profile" : "/sign-in"}>
-            <li className="navbar__container__menu__card__ul__li">
+            <li className="navbar__container__lists__item">
               <p>{isLoggedIn ? "Your Profile" : "Sign"}</p>
             </li>
           </Link>
         </ul>
+        <div className="navbar__container__hamburger">
+          <button>
+            {sidebar ? (
+              <AiIcons.AiOutlineClose fill="#fff" onClick={showSideBar} />
+            ) : (
+              <FaIcons.FaBars fill="#fff" onClick={showSideBar} />
+            )}
+          </button>
+        </div>
       </div>
     </div>
   );
