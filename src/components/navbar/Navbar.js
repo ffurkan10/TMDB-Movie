@@ -12,6 +12,10 @@ const Navbar = () => {
     setSidebar(!sidebar);
   };
 
+  const closeSideBar = () => {
+    setSidebar(false);
+  };
+
   return (
     <div className="navbar">
       <div className="navbar__container">
@@ -46,18 +50,24 @@ const Navbar = () => {
           }
         >
           <Link to="/">
-            <li className="navbar__container__lists__item">
+            <li
+              onClick={closeSideBar}
+              className="navbar__container__lists__item"
+            >
               <p>Home</p>
             </li>
           </Link>
 
-          <Link to="/favorite">
+          <Link onClick={closeSideBar} to="/favorite">
             <li className="navbar__container__lists__item">
               <p>Favorite</p>
             </li>
           </Link>
 
-          <Link to={isLoggedIn ? "/profile" : "/sign-in"}>
+          <Link
+            onClick={closeSideBar}
+            to={isLoggedIn ? "/profile" : "/sign-in"}
+          >
             <li className="navbar__container__lists__item">
               <p>{isLoggedIn ? "Your Profile" : "Sign"}</p>
             </li>
