@@ -1,3 +1,19 @@
+$breakpoints: (
+  "xs": 36em,
+  "sm": 48em,
+  "md": 62em,
+  "lg": 75em,
+  "xl": 87.5em,
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
 .sign {
   background-image: url("../assets/chair.jpg");
   min-height: 86vh;
@@ -48,6 +64,33 @@
       a {
         text-decoration: none;
         color: #fff;
+      }
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .sign {
+    &__container {
+      width: 80%;
+      form {
+        width: 100%;
+        input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@include breakpoint(xs) {
+  .sign {
+    &__container {
+      width: 90%;
+      form {
+        width: 100%;
+        input {
+          width: 100%;
+        }
       }
     }
   }

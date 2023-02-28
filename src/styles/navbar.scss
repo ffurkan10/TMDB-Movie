@@ -1,3 +1,19 @@
+$breakpoints: (
+  "xs": 36em,
+  "sm": 48em,
+  "md": 62em,
+  "lg": 75em,
+  "xl": 87.5em,
+) !default;
+
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
 .navbar {
   background-color: #373b69;
   &__container {
@@ -6,7 +22,7 @@
     justify-content: space-between;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 10px 20px;
     &__logo {
       display: flex;
       align-items: center;
@@ -44,6 +60,71 @@
             color: rgb(1, 180, 228);
             transition: all 0.3s ease-in-out;
           }
+        }
+      }
+    }
+    &__hamburger {
+      display: none;
+      button {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@include breakpoint(sm) {
+  .navbar {
+    &__container {
+      &__lists {
+        display: flex;
+        flex-direction: column;
+        transition: 500ms;
+        top: 100px;
+        right: -300%;
+        position: fixed;
+        overflow: hidden;
+        z-index: 999;
+        list-style-type: none;
+        min-height: 86vh;
+
+        &__item {
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        &__active {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: fixed;
+          flex-direction: column;
+          z-index: 999;
+          right: 0;
+          top: 100px;
+          background-color: #1e1e1e;
+          width: 100%;
+          padding: 10px;
+          transition: 500ms;
+          min-height: 86vh;
+          list-style-type: none;
+          a {
+            display: flex;
+            align-items: center;
+            p {
+              font-size: 20px;
+              margin-block: 20px;
+            }
+          }
+        }
+      }
+      &__hamburger {
+        display: block;
+        button {
+          cursor: pointer;
         }
       }
     }
