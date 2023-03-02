@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../components/loading/Loading";
 import MovieList from "../../components/movieList/MovieList";
 import Paginations from "../../components/paginations/Paginations";
-import { fetchMovie, selectAllPosts } from "../../redux/MovieSlice";
+import { fetchMovieAsync, selectAllPosts } from "../../redux/MovieSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     if (status === "idle") {
-      dispatch(fetchMovie());
+      dispatch(fetchMovieAsync());
     }
   }, [dispatch, status]);
 

@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Loading from "../../components/loading/Loading";
 import {
-  fetchMovieDetail,
-  fetchSimilarMovie,
+  fetchMovieDetailAsync,
+  fetchSimilarMovieAsync,
   selectSelectedMovie,
   selectSelectedSimilar,
 } from "../../redux/MovieSlice";
@@ -19,11 +19,11 @@ const MovieDetail = () => {
   const IMG_API = "https://image.tmdb.org/t/p/w1280";
 
   useEffect(() => {
-    dispatch(fetchMovieDetail(id));
+    dispatch(fetchMovieDetailAsync(id));
   }, [dispatch, id]);
 
   useEffect(() => {
-    dispatch(fetchSimilarMovie(id));
+    dispatch(fetchSimilarMovieAsync(id));
   }, [dispatch, id]);
 
   if (status === "loading") {
