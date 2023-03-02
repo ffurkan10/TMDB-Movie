@@ -30,36 +30,6 @@ export const fetchSimilarMovieAsync = createAsyncThunk(
   }
 );
 
-// export const fetchMovie = createAsyncThunk("fetchMovie", async (page) => {
-//   const response = await axios.get(
-//     `https://api.themoviedb.org/3/movie/popular?api_key=ccb0a8566b23ab43471cda53fed3d9e7&language=en-US&page=${page}`
-//   );
-//   return {
-//     movie: response.data.results,
-//   };
-// });
-
-// export const fetchMovieDetail = createAsyncThunk(
-//   "fetchMovieDetail",
-//   async (id) => {
-//     const response = await axios.get(
-//       `https://api.themoviedb.org/3/movie/${id}?api_key=ccb0a8566b23ab43471cda53fed3d9e7&language=en-US`
-//     );
-//     return response.data;
-//   }
-// );
-
-// export const fetchSimilarMovie = createAsyncThunk(
-//   "fetchSimilarMovie",
-//   async (id) => {
-//     const response = await axios.get(
-//       `https://api.themoviedb.org/3/movie/${id}/similar?api_key=ccb0a8566b23ab43471cda53fed3d9e7&language=en-US&page=1`
-//     );
-//     console.log(response.data.results);
-//     return response.data.results;
-//   }
-// );
-
 const MovieSlice = createSlice({
   name: "data",
   initialState,

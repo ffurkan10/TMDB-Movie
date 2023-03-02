@@ -8,11 +8,14 @@ const instance = axios.create({
   },
 });
 
+// film listeleme
 export const fetchMovie = (page) =>
   instance.get(`movie/popular?page=${page}`).then((res) => res.data.results);
 
+// detay sayfası
 export const fetchMovieDetail = (id) =>
   instance.get(`movie/${id}`).then((res) => res.data);
 
+// benzer filmler
 export const fetchSimilarMovie = (id) =>
   instance.get(`movie/${id}/similar?page=1`).then((res) => res.data.results);
